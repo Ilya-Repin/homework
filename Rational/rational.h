@@ -14,15 +14,18 @@ class Rational {
  public:
   Rational();
   Rational(int numerator, int denominator = 1);  // NOLINT
-  Rational(const Rational &rat);
+  Rational(const Rational &other);
+
   int GetNumerator() const;
   int GetDenominator() const;
   void SetNumerator(int numerator);
   void SetDenominator(int denominator);
+
   Rational &operator+=(const Rational &other);
   Rational &operator-=(const Rational &other);
   Rational &operator/=(const Rational &other);
   Rational &operator*=(const Rational &other);
+
   Rational &operator++();
   Rational operator++(int);
   Rational &operator--();
@@ -35,12 +38,12 @@ class Rational {
   void Reduce();
 };
 
-std::istream &operator>>(std::istream &is, Rational &rat);
-std::ostream &operator<<(std::ostream &os, Rational &rat);
-std::ostream &operator<<(std::ostream &os, const Rational &rat);
+std::istream &operator>>(std::istream &is, Rational &other);
+std::ostream &operator<<(std::ostream &os, Rational &other);
+std::ostream &operator<<(std::ostream &os, const Rational &other);
 
-Rational operator-(const Rational &rat);
-Rational operator+(const Rational &rat);
+Rational operator-(const Rational &other);
+Rational operator+(const Rational &other);
 
 Rational operator+(const Rational &first, const Rational &second);
 Rational operator-(const Rational &first, const Rational &second);
