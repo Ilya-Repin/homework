@@ -3,10 +3,10 @@
 #define REVERSE_RANGE_IMPLEMENTED
 #include <iostream>
 
-class ItObject {
+class IteratorObject {
  public:
-  explicit ItObject(int end);
-  ItObject(int begin, int end, int step = 1);
+  explicit IteratorObject(int end);
+  IteratorObject(int begin, int end, int step = 1);
 
   class Iterator {
    public:
@@ -49,7 +49,7 @@ class ItObject {
   int step_;
 };
 
-ItObject Range(int end);
-ItObject Range(int begin, int end, int step = 1);
+IteratorObject Range(int end);
+IteratorObject Range(int begin, int end, int step = 1);
 
 #endif  // RANGE_H_
