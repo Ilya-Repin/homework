@@ -13,14 +13,14 @@ class ArrayOutOfRange : public std::out_of_range {
 template <class T, size_t N>
 class Array {
  public:
-  T my_arr[N];
+  T array[N];
 
   T &operator[](size_t idx) {
-    return my_arr[idx];
+    return array[idx];
   }
 
   const T &operator[](size_t idx) const {
-    return my_arr[idx];
+    return array[idx];
   }
 
   T &At(size_t idx) {
@@ -28,7 +28,7 @@ class Array {
       throw ArrayOutOfRange{};
     }
 
-    return my_arr[idx];
+    return array[idx];
   }
 
   const T &At(size_t idx) const {
@@ -36,27 +36,27 @@ class Array {
       throw ArrayOutOfRange{};
     }
 
-    return my_arr[idx];
+    return array[idx];
   }
 
   T &Front() {
-    return my_arr[0];
+    return array[0];
   }
 
   const T &Front() const {
-    return my_arr[0];
+    return array[0];
   }
 
   T &Back() {
-    return my_arr[N - 1];
+    return array[N - 1];
   }
 
   const T &Back() const {
-    return my_arr[N - 1];
+    return array[N - 1];
   }
 
   const T *Data() const {
-    return my_arr;
+    return array;
   }
 
   size_t Size() const {
@@ -69,15 +69,15 @@ class Array {
 
   void Fill(const T &value) {
     for (size_t i = 0; i < N; ++i) {
-      my_arr[i] = value;
+      array[i] = value;
     }
   }
 
   void Swap(Array<T, N> &other) {
     for (size_t i = 0; i < N; ++i) {
-      T tmp = std::move(my_arr[i]);
-      my_arr[i] = std::move(other.my_arr[i]);
-      other.my_arr[i] = std::move(tmp);
+      T tmp = std::move(array[i]);
+      array[i] = std::move(other.array[i]);
+      other.array[i] = std::move(tmp);
     }
   }
 };
