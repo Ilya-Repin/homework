@@ -27,10 +27,10 @@ int Strcmp(const char *first, const char *second) {
     ++b;
   }
 
-  int lf = Strlen(first);
-  int ls = Strlen(second);
+  int len_first = Strlen(first);
+  int len_second = Strlen(second);
 
-  return ((lf == ls) ? 0 : (lf < ls) ? -1 : 1);
+  return ((len_first == len_second) ? 0 : (len_first < len_second) ? -1 : 1);
 }
 
 int Strncmp(const char *first, const char *second, size_t count) {
@@ -165,7 +165,7 @@ size_t Strspn(const char *dest, const char *src) {
     }
 
     if (!flag) {
-      return i;
+      break;
     }
 
     ++i;
@@ -191,7 +191,7 @@ size_t Strcspn(const char *dest, const char *src) {
     }
 
     if (flag) {
-      return i;
+      break;
     }
 
     ++i;
